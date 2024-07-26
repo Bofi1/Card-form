@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>  <!-- tailwind -->
+</head>
+<body>
+
+    <main class="mt-40">
+        <div id="card-container" class="relative w-full max-w-sm mx-auto h-56">
+
+            <!-- Front card -->
+            <div id="front-card" style="transform-style: preserve-3d;" class="bg-[red] h-full w-full rounded-xl drop-shadow-md">
+                frente
+            </div>
+
+
+
+
+
+            <!-- Back card -->
+            <div id="back-card" style="transform: rotateY(180deg); backface-visibility: hidden;" class="bg-[blue] h-full w-full rounded-xl drop-shadow-md absolute top-0 backface-visibility: hidden;">
+                atras
+            </div>
+
+        </div>
+    </main>
+    
+    <script src="./index.js"></script>
+
+</body>
+</html>
