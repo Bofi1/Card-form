@@ -14,18 +14,18 @@ cardContainer.addEventListener('click', turnCard)
 function turnCard() {
 
     if (!isCardRotated) {
-        cardContainer.style.transition = '.3s'
+        cardContainer.style.transition = '300ms'
         cardContainer.style.transform = 'rotateY(180deg)'
-        backCard.style.backfaceVisibility = 'visible'
         backCard.style.transform = 'rotateY(180deg)'
         isCardRotated = true
+        setTimeout(() => {backCard.style.backfaceVisibility = 'visible'}, 100)
        
     } else{
-        cardContainer.style.transition = '.3s'
+        cardContainer.style.transition = '300ms'
         cardContainer.style.transform = 'rotateY(0deg)'
-        backCard.style.backfaceVisibility = 'hidden'
         backCard.style.transform = 'rotateY(180deg)'
         isCardRotated = false
+        setTimeout(() => {backCard.style.backfaceVisibility = 'hidden'}, 100)
     }
 }
 
