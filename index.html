@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <main class="mt-40">
+    <main class="mt-40 flex flex-col items-center">
         <div id="card-container" class="relative w-full max-w-sm mx-auto h-56">
 
             <!-- Front card -->
@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="flex justify-center text-2xl mt-[10px]">
-                    <span class="text-[30px]">**** **** **** ****</span>
+                    <span id="card-text-number" class="text-[30px]">**** **** **** ****</span>
                 </div>
 
                 <div class="flex justify-around text-sm">
@@ -38,8 +38,14 @@
                     <span class="text-[45px] relative top-[7px]">***</span>
                 </div>
             </div>
-
         </div>
+
+        <!-- Form -->
+
+        <div class="bg-slate-400 w-[400px] h-[400px] mt-[60px]">
+            <input id="form-number" type="number" class="outline-none           [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+        </div>
+
     </main>
     
     <script src="./index.js"></script>

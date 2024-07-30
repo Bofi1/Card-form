@@ -7,8 +7,12 @@ let backCard = document.getElementById('back-card')
 
 let isCardRotated = false
 
+let formNumber = document.getElementById('form-number')
+let cardTextNumber = document.getElementById('card-text-number')
 
 
+
+// card rotate
 cardContainer.addEventListener('click', turnCard)
 
 function turnCard() {
@@ -28,6 +32,28 @@ function turnCard() {
         setTimeout(() => {backCard.style.backfaceVisibility = 'hidden'}, 100)
     }
 }
+
+
+
+// card & form number
+formNumber.addEventListener('input', hola)
+
+function hola() {
+    let valor = formNumber.value
+    valor = valor.slice(0, 16).match(/.{1,4}/g)
+    valor = valor.join(' ')
+    cardTextNumber.innerHTML = valor
+
+    if (formNumber.value.length> 1) {
+        formNumber.value = formNumber.value.slice(0, 16)
+    }
+
+    if (formNumber.value == '') {
+        cardTextNumber.innerHTML = '**** **** **** ****'
+    }
+}
+
+
 
 
 })()
