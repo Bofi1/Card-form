@@ -40,16 +40,17 @@ formNumber.addEventListener('input', hola)
 
 function hola() {
     let valor = formNumber.value
-    valor = valor.slice(0, 16).match(/.{1,4}/g)
+    valor = valor.slice(0, 16).match(/.{0,4}/g)
     valor = valor.join(' ')
     cardTextNumber.innerHTML = valor
 
-    if (formNumber.value.length> 1) {
+    if (formNumber.value.length> 0) {
         formNumber.value = formNumber.value.slice(0, 16)
     }
 
     if (formNumber.value == '') {
         cardTextNumber.innerHTML = '**** **** **** ****'
+        console.log('valor 0');
     }
 }
 
