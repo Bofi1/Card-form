@@ -10,6 +10,7 @@ let isCardRotated = false
 let formNumber = document.getElementById('form-number')
 let cardTextNumber = document.getElementById('card-text-number')
 
+let logoType = document.getElementById('type')
 
 
 // card rotate
@@ -36,9 +37,9 @@ function turnCard() {
 
 
 // card & form number
-formNumber.addEventListener('input', hola)
+formNumber.addEventListener('input', cardNumberInteration)
 
-function hola() {
+function cardNumberInteration() {
     let valor = formNumber.value
     valor = valor.slice(0, 16).match(/.{0,4}/g)
     valor = valor.join(' ')
@@ -52,8 +53,41 @@ function hola() {
         cardTextNumber.innerHTML = '**** **** **** ****'
         console.log('valor 0');
     }
-}
 
+
+    // card type (vs, mc, amex)
+    let firstNumber = formNumber.value
+    firstNumber = firstNumber.toString().charAt(0) 
+
+    function type(color, card) {
+        frontCard.style.transition = 'all 0.3s'
+        frontCard.style.background = color
+        backCard.style.background = color
+        logoType.style.transition = 'all 0.3s'
+        logoType.src = './img/'+ card +'.png'
+    }
+
+    switch(parseInt(firstNumber)) {
+        case 4:
+            type('blue', 'visa')
+        break;
+
+        case 5:
+            type('red', 'masterCard')
+        break;
+
+        case 3:
+            type('white', 'amex')
+        break;
+
+        default:
+            frontCard.style.transition = 'all 0.3s'
+            frontCard.style.background = 'gray'
+            backCard.style.background = 'gray'
+            logoType.src = ''
+      }
+
+}
 
 
 
