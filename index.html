@@ -6,16 +6,16 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>  <!-- tailwind -->
 </head>
-<body>
+<body style="color: #1E1E1E;">
 
     <main class="mt-40 flex flex-col items-center">
         <div id="card-container" class="relative w-full max-w-sm mx-auto h-56">
 
             <!-- Front card -->
-            <div id="front-card" style="transform-style: preserve-3d;" class="bg-[gray] h-full w-full rounded-xl drop-shadow-md flex flex-col justify-between p-[30px]">
+            <div id="front-card" style="transform-style: preserve-3d;" class="bg-[#99A3A4] h-full w-full rounded-xl drop-shadow-md flex flex-col justify-between p-[30px] ">
 
                 <div class="w-full h-[30px] flex justify-start">
-                    <img id="type" src="" class="w-[60px]">
+                    <img id="type" src="" class="w-[30px]">
                 </div>
 
                 <div class="flex justify-center text-2xl mt-[10px]">
@@ -31,10 +31,10 @@
 
 
             <!-- Back card -->
-            <div id="back-card" style="transform: rotateY(180deg); backface-visibility: hidden;" class=" bg-[white] h-full w-full rounded-xl drop-shadow-md absolute top-0 backface-visibility: hidden; flex flex-col justify-start items-center">
+            <div id="back-card" style="transform: rotateY(180deg); backface-visibility: hidden;" class="bg-[#99A3A4] h-full w-full rounded-xl drop-shadow-md absolute top-0 backface-visibility: hidden; flex flex-col justify-start items-center">
                 <div class="bg-slate-700 w-full h-[40px] mt-[20px]"></div>
-                <div class="bg-slate-400 w-[80%] h-[30px] mt-[15px]"></div>
-                <div class="bg-white h-[100px] w-[100px] absolute right-0 top-[37px] rounded-[100%] border-[gray] border-[2px] flex justify-center items-center">
+                <div class="bg-slate-500 w-[80%] h-[30px] mt-[15px]"></div>
+                <div class="bg-white h-[100px] w-[100px] absolute right-0 top-[37px] rounded-[100%] border-2 border-slate-500 flex justify-center items-center">
                     <span class="text-[45px] relative top-[7px]">***</span>
                 </div>
             </div>

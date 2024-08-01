@@ -47,11 +47,19 @@ function cardNumberInteration() {
 
     if (formNumber.value.length> 0) {
         formNumber.value = formNumber.value.slice(0, 16)
+
+        cardTextNumber.style.transition = ''
+        cardTextNumber.style.fontSize = '25px'
     }
 
+
     if (formNumber.value == '') {
+        cardTextNumber.style.transition = 'all 0.3s'
         cardTextNumber.innerHTML = '**** **** **** ****'
-        console.log('valor 0');
+        cardTextNumber.style.fontSize = '30px'
+        frontCard.style.background = '#99A3A4'
+        backCard.style.background = '#99A3A4'
+        logoType.src = ''
     }
 
 
@@ -60,34 +68,59 @@ function cardNumberInteration() {
     firstNumber = firstNumber.toString().charAt(0) 
 
     function type(color, card) {
-        frontCard.style.transition = 'all 0.3s'
+        frontCard.style.transition = 'all 0.5s'
         frontCard.style.background = color
         backCard.style.background = color
         logoType.style.transition = 'all 0.3s'
-        logoType.src = './img/'+ card +'.png'
+        logoType.src = `./img/${card}.png`
     }
 
-    switch(parseInt(firstNumber)) {
-        case 4:
-            type('blue', 'visa')
-        break;
+    if (formNumber.value.length==16) {
+        switch(parseInt(firstNumber)) {
+            case 4:
+                type('#EAF2F8', 'vs')
+            break;
+    
+            case 5:
+                type('#FDEDEC', 'mc')
+            break;
+    
+            case 3:
+                type('#FBFCFC', 'amex')
+            break;
+    
+            default:
+                frontCard.style.transition = 'all 0.3s'
+                frontCard.style.background = '#99A3A4'
+                backCard.style.background = '#99A3A4'
+                logoType.src = ''
+          }
+    } else {
+        frontCard.style.transition = 'all 0.3s'
+        frontCard.style.background = '#99A3A4'
+        backCard.style.background = '#99A3A4'
+        logoType.src = ''
+    }
 
-        case 5:
-            type('red', 'masterCard')
-        break;
 
-        case 3:
-            type('white', 'amex')
-        break;
 
-        default:
-            frontCard.style.transition = 'all 0.3s'
-            frontCard.style.background = 'gray'
-            backCard.style.background = 'gray'
-            logoType.src = ''
-      }
+    // if is not vs, mc or amex- all gray
+    if (formNumber.value.length == 16 && firstNumber != 4 && firstNumber != 5 && firstNumber != 3) {
+        cardTextNumber.style.transition = 'all 0.2s'
+        cardTextNumber.style.color = 'gray'
+    } else {
+        cardTextNumber.style.transition = 'all 0.2s'
+        cardTextNumber.style.color = '#1E1E1E'
+    }
+
+
+
 
 }
+
+
+
+
 
 
 
