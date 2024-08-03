@@ -1,6 +1,6 @@
 (() => { // (() => { content })()
 
-
+//variables
 let cardContainer = document.getElementById('card-container')
 let frontCard = document.getElementById('front-card')
 let backCard = document.getElementById('back-card')
@@ -12,6 +12,30 @@ let cardTextNumber = document.getElementById('card-text-number')
 
 let logoType = document.getElementById('type')
 
+let cvvForm = document.getElementById('cvvForm')
+let cvvCard = document.getElementById('cvvCard')
+
+
+
+
+// funcion para mostrar parte de atras de la tarjeta
+function rotateFront() {
+    cardContainer.style.transition = '300ms'
+    cardContainer.style.transform = 'rotateY(0deg)'
+    backCard.style.transform = 'rotateY(180deg)'
+    isCardRotated = false
+    setTimeout(() => {backCard.style.backfaceVisibility = 'hidden'}, 100)
+}
+
+// funcion para mostrar parte de atras de la tarjeta
+function rotateBack() {
+    cardContainer.style.transition = '300ms'
+    cardContainer.style.transform = 'rotateY(180deg)'
+    backCard.style.transform = 'rotateY(180deg)'
+    isCardRotated = true
+    setTimeout(() => {backCard.style.backfaceVisibility = 'visible'}, 100)
+}
+
 
 // card rotate
 cardContainer.addEventListener('click', turnCard)
@@ -19,18 +43,10 @@ cardContainer.addEventListener('click', turnCard)
 function turnCard() {
 
     if (!isCardRotated) {
-        cardContainer.style.transition = '300ms'
-        cardContainer.style.transform = 'rotateY(180deg)'
-        backCard.style.transform = 'rotateY(180deg)'
-        isCardRotated = true
-        setTimeout(() => {backCard.style.backfaceVisibility = 'visible'}, 100)
+        rotateBack()
        
     } else{
-        cardContainer.style.transition = '300ms'
-        cardContainer.style.transform = 'rotateY(0deg)'
-        backCard.style.transform = 'rotateY(180deg)'
-        isCardRotated = false
-        setTimeout(() => {backCard.style.backfaceVisibility = 'hidden'}, 100)
+        rotateFront()
     }
 }
 
@@ -46,6 +62,7 @@ function cardNumberInteration() {
     cardTextNumber.innerHTML = valor
 
     if (formNumber.value.length> 0) {
+        cardTextNumber.style.fontWeight = '500px'
         formNumber.value = formNumber.value.slice(0, 16)
 
         cardTextNumber.style.transition = ''
@@ -106,15 +123,36 @@ function cardNumberInteration() {
 
     // if is not vs, mc or amex- all gray
     if (formNumber.value.length == 16 && firstNumber != 4 && firstNumber != 5 && firstNumber != 3) {
-        cardTextNumber.style.transition = 'all 0.2s'
+        cardTextNumber.style.transition = 'color 0.3s'
         cardTextNumber.style.color = 'gray'
     } else {
-        cardTextNumber.style.transition = 'all 0.2s'
         cardTextNumber.style.color = '#1E1E1E'
     }
 
+}
 
 
+//focus rotate
+formNumber.addEventListener('focus', () => {rotateFront()})
+cvvForm.addEventListener('focus', () => {rotateBack()})
+
+
+cvvForm.addEventListener('input', cvv)
+
+function cvv() {
+    let valor = cvvForm.value
+    valor = valor.slice(0,3)
+    cvvCard.innerHTML = valor
+    
+    if (valor>0) {
+        cvvCard.style.fontSize = '25px'
+        cvvCard.style.top = '2.5px'
+        cvvForm.value = cvvForm.value.slice(0, 3)
+    } else  {
+        cvvCard.style.fontSize = '45px'
+        cvvCard.style.top = '9px'
+        cvvCard.innerHTML = '***'
+    }
 
 }
 
