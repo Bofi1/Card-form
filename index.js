@@ -15,25 +15,35 @@ let logoType = document.getElementById('type')
 let cvvForm = document.getElementById('cvvForm')
 let cvvCard = document.getElementById('cvvCard')
 
+let tiempoValor = 1000 // <--- velocidad tarjeta
+
 
 
 
 // funcion para mostrar parte de atras de la tarjeta
 function rotateFront() {
-    cardContainer.style.transition = '300ms'
+
+    let tiempo = (tiempoValor * 85)/300
+    tiempoValor.toString()
+
+    cardContainer.style.transition = `${tiempoValor}ms`
     cardContainer.style.transform = 'rotateY(0deg)'
     backCard.style.transform = 'rotateY(180deg)'
     isCardRotated = false
-    setTimeout(() => {backCard.style.backfaceVisibility = 'hidden'}, 100)
+    setTimeout(() => {backCard.style.backfaceVisibility = 'hidden'}, tiempo)
 }
 
 // funcion para mostrar parte de atras de la tarjeta
 function rotateBack() {
-    cardContainer.style.transition = '300ms'
+
+    let tiempo = (tiempoValor * 85)/300
+    tiempoValor.toString()
+
+    cardContainer.style.transition = `${tiempoValor}ms`
     cardContainer.style.transform = 'rotateY(180deg)'
     backCard.style.transform = 'rotateY(180deg)'
     isCardRotated = true
-    setTimeout(() => {backCard.style.backfaceVisibility = 'visible'}, 100)
+    setTimeout(() => {backCard.style.backfaceVisibility = 'visible'}, tiempo)
 }
 
 
@@ -52,7 +62,7 @@ function turnCard() {
 
 
 
-// card & form number
+// card number validation
 formNumber.addEventListener('input', cardNumberInteration)
 
 function cardNumberInteration() {
@@ -137,6 +147,8 @@ formNumber.addEventListener('focus', () => {rotateFront()})
 cvvForm.addEventListener('focus', () => {rotateBack()})
 
 
+
+// cvv validation
 cvvForm.addEventListener('input', cvv)
 
 function cvv() {
@@ -155,10 +167,6 @@ function cvv() {
     }
 
 }
-
-
-
-
 
 
 
