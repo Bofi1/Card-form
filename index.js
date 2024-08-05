@@ -23,27 +23,23 @@ let tiempoValor = 1000 // <--- velocidad tarjeta
 // funcion para mostrar parte de atras de la tarjeta
 function rotateFront() {
 
-    let tiempo = (tiempoValor * 85)/300
-    tiempoValor.toString()
-
-    cardContainer.style.transition = `${tiempoValor}ms`
-    cardContainer.style.transform = 'rotateY(0deg)'
+    frontCard.style.transition = `600ms`
+    backCard.style.transition = `600ms`
+    frontCard.style.transform = 'rotateY(0deg)'
     backCard.style.transform = 'rotateY(180deg)'
     isCardRotated = false
-    setTimeout(() => {backCard.style.backfaceVisibility = 'hidden'}, tiempo)
+    
 }
 
 // funcion para mostrar parte de atras de la tarjeta
 function rotateBack() {
 
-    let tiempo = (tiempoValor * 85)/300
-    tiempoValor.toString()
-
-    cardContainer.style.transition = `${tiempoValor}ms`
-    cardContainer.style.transform = 'rotateY(180deg)'
-    backCard.style.transform = 'rotateY(180deg)'
+    frontCard.style.transition = `600ms`
+    backCard.style.transition = `600ms`
+    frontCard.style.transform = 'rotateY(180deg)'
+    backCard.style.transform = 'rotateY(0deg)'
     isCardRotated = true
-    setTimeout(() => {backCard.style.backfaceVisibility = 'visible'}, tiempo)
+    
 }
 
 

@@ -9,10 +9,10 @@
 <body style="color: #1E1E1E;">
 
     <main class="mt-40 flex flex-col items-center">
-        <div id="card-container" class="relative w-full max-w-sm mx-auto h-56">
+        <div id="card-container" class="relative w-full max-w-sm mx-auto h-56 transform-style: preserve-3d;">
 
             <!-- Front card -->
-            <div id="front-card" style="transform-style: preserve-3d;" class="bg-[#99A3A4] h-full w-full rounded-xl drop-shadow-md flex flex-col justify-between p-[30px] ">
+            <div id="front-card" class="bg-[#99A3A4] h-full w-full rounded-xl drop-shadow-md flex flex-col justify-between p-[30px] ">
 
                 <div class="w-full h-[30px] flex justify-start">
                     <img id="type" src="" class="w-[30px]">
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="flex justify-around text-sm">
-                    <span class="mr-[100px] font-[500]">NOMBRE Y APELLIDO</span>
+                    <span class="mr-[100px] font-[500]">First & Last Name</span>
                     <span class="font-[500]">MM/AA</span>
                 </div>
 
@@ -42,14 +42,16 @@
 
         <!-- Form -->
 
-        <div class="bg-slate-400 w-[400px] h-[400px] mt-[60px] p-[20px] rounded-xl">
-            <input id="form-number" type="number" class="outline-none w-full          [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
-            <input id="nameForm" type="text" class="outline-none w-full">
+        <div class="bg-slate-400 w-[300px] h-[400px] mt-[60px] p-[20px] rounded-xl">
+            <input id="form-number" type="number" class="outline-none w-full mb-[40px] mt-[40px] px-[10px] py-[5px]        [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+            <input id="nameForm" type="text" class="outline-none w-full mb-[40px] px-[10px] py-[5px]">
             
             <div class="flex ">
-                <input id="dateForm" type="text" class="outline-none w-[70%] mr-[5px] px-[10px] py-[5px]">
-                <input type="number" name="" id="cvvForm" class="outline-none w-[30%]                     [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+                <input id="dateForm" type="text" class="outline-none w-[70%] mr-[5px] px-[10px] py-[5px] ">
+                <input type="number" name="" id="cvvForm" class="outline-none w-[30%]  px-[10px] py-[5px]                   [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
             </div>
+
+            <button type="submit">boton</button>
 
         </div>
 
