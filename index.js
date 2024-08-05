@@ -16,6 +16,7 @@ let cvvForm = document.getElementById('cvvForm')
 let cvvCard = document.getElementById('cvvCard')
 
 let nameForm = document.getElementById('nameForm')
+let nameCard = document.getElementById('nameCard')
 
 
 
@@ -25,8 +26,8 @@ let nameForm = document.getElementById('nameForm')
 // funcion para mostrar parte de atras de la tarjeta
 function rotateFront() {
 
-    frontCard.style.transition = `1000ms`
-    backCard.style.transition = `1000ms`
+    frontCard.style.transition = `300ms`
+    backCard.style.transition = `300ms`
     frontCard.style.transform = 'rotateY(0deg)'
     backCard.style.transform = 'rotateY(180deg)'
     isCardRotated = false
@@ -36,8 +37,8 @@ function rotateFront() {
 // funcion para mostrar parte de atras de la tarjeta
 function rotateBack() {
 
-    frontCard.style.transition = `1000ms`
-    backCard.style.transition = `1000ms`
+    frontCard.style.transition = `300ms`
+    backCard.style.transition = `300ms`
     frontCard.style.transform = 'rotateY(180deg)'
     backCard.style.transform = 'rotateY(0deg)'
     isCardRotated = true
@@ -142,6 +143,7 @@ function cardNumberInteration() {
 
 //focus rotate
 formNumber.addEventListener('focus', () => {rotateFront()})
+nameForm.addEventListener('focus', () => {rotateFront()})
 cvvForm.addEventListener('focus', () => {rotateBack()})
 
 
@@ -169,12 +171,16 @@ function cvv() {
 
 // name validation
     // para que solo acepte letras minus y mayus
-nameForm.addEventListener('keypress' , (e) => {
-    var expre = /[a-zA-Z]/
-    if (!expre.test(e.key)) e.preventDefault()
-})
+// nameForm.addEventListener('keypress' , (e) => {
+//     var expre = /[a-zA-Z ]/
+//     if (!expre.test(e.key)) e.preventDefault()
+// })
 
+nameForm.addEventListener('keyup', valorName)
 
+function valorName() {
+    nameCard.innerHTML = nameForm.value
+}
 
 
 })()
