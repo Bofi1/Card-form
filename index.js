@@ -15,7 +15,9 @@ let logoType = document.getElementById('type')
 let cvvForm = document.getElementById('cvvForm')
 let cvvCard = document.getElementById('cvvCard')
 
-let tiempoValor = 1000 // <--- velocidad tarjeta
+let nameForm = document.getElementById('nameForm')
+
+
 
 
 
@@ -23,8 +25,8 @@ let tiempoValor = 1000 // <--- velocidad tarjeta
 // funcion para mostrar parte de atras de la tarjeta
 function rotateFront() {
 
-    frontCard.style.transition = `600ms`
-    backCard.style.transition = `600ms`
+    frontCard.style.transition = `1000ms`
+    backCard.style.transition = `1000ms`
     frontCard.style.transform = 'rotateY(0deg)'
     backCard.style.transform = 'rotateY(180deg)'
     isCardRotated = false
@@ -34,8 +36,8 @@ function rotateFront() {
 // funcion para mostrar parte de atras de la tarjeta
 function rotateBack() {
 
-    frontCard.style.transition = `600ms`
-    backCard.style.transition = `600ms`
+    frontCard.style.transition = `1000ms`
+    backCard.style.transition = `1000ms`
     frontCard.style.transform = 'rotateY(180deg)'
     backCard.style.transform = 'rotateY(0deg)'
     isCardRotated = true
@@ -109,19 +111,19 @@ function cardNumberInteration() {
             break;
     
             case 3:
-                type('#FBFCFC', 'amex')
+                type('#e9e9e9', 'amex')
             break;
     
             default:
                 frontCard.style.transition = 'all 0.3s'
-                frontCard.style.background = '#99A3A4'
-                backCard.style.background = '#99A3A4'
+                frontCard.style.background = 'white'
+                backCard.style.background = 'white'
                 logoType.src = ''
           }
     } else {
         frontCard.style.transition = 'all 0.3s'
-        frontCard.style.background = '#99A3A4'
-        backCard.style.background = '#99A3A4'
+        frontCard.style.background = 'white'
+        backCard.style.background = 'white'
         logoType.src = ''
     }
 
@@ -130,9 +132,9 @@ function cardNumberInteration() {
     // if is not vs, mc or amex- all gray
     if (formNumber.value.length == 16 && firstNumber != 4 && firstNumber != 5 && firstNumber != 3) {
         cardTextNumber.style.transition = 'color 0.3s'
-        cardTextNumber.style.color = 'gray'
+        cardTextNumber.style.color = '#fafafa'
     } else {
-        cardTextNumber.style.color = '#1E1E1E'
+        cardTextNumber.style.color = 'black'
     }
 
 }
@@ -163,6 +165,15 @@ function cvv() {
     }
 
 }
+
+
+// name validation
+    // para que solo acepte letras minus y mayus
+nameForm.addEventListener('keypress' , (e) => {
+    var expre = /[a-zA-Z]/
+    if (!expre.test(e.key)) e.preventDefault()
+})
+
 
 
 
