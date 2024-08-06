@@ -18,6 +18,9 @@ let cvvCard = document.getElementById('cvvCard')
 let nameForm = document.getElementById('nameForm')
 let nameCard = document.getElementById('nameCard')
 
+let dateFrom = document.getElementById('dateForm')
+let dateCard = document.getElementById('dateCard')
+
 
 
 
@@ -170,17 +173,25 @@ function cvv() {
 
 
 // name validation
-    // para que solo acepte letras minus y mayus
-// nameForm.addEventListener('keypress' , (e) => {
-//     var expre = /[a-zA-Z ]/
-//     if (!expre.test(e.key)) e.preventDefault()
-// })
+//     para que solo acepte letras minus y mayus
+nameForm.addEventListener('keypress' , (e) => {
+    var expre = /[a-zA-Z ]/
+    if (!expre.test(e.key)) e.preventDefault()
+})
 
-nameForm.addEventListener('keyup', valorName)
+// se escriba al mismo tiempo
+nameForm.addEventListener('input', valorName)
 
 function valorName() {
+    nameCard.style.transition = '0.3s'
     nameCard.innerHTML = nameForm.value
+
+    if (nameForm.value == '') {
+        
+        nameCard.innerHTML = 'First & Last Name'
+    }
 }
+
 
 
 })()
