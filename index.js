@@ -154,8 +154,10 @@ function cardNumberInteration() {
 formNumber.addEventListener('focus', () => {rotateFront()})
 nameForm.addEventListener('focus', () => {rotateFront()})
 cvvForm.addEventListener('focus', () => {rotateBack()})
+cvvForm.addEventListener('blur', () => {rotateFront()})
 monthForm.addEventListener('focus', () => {rotateFront()})
 yearForm.addEventListener('focus', () => {rotateFront()})
+
 
 
 
@@ -230,7 +232,7 @@ function yearSelected() {
     let posicion = yearForm.selectedIndex
     let yy = document.getElementById('dateYYcard')
 
-    posicion = optionSelect[posicion].value
+    posicion = optionSelect[13 + posicion].value
 
     if (posicion == 'YY') {
         yearForm.style.color = 'gray'
