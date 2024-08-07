@@ -21,6 +21,12 @@ let nameCard = document.getElementById('nameCard')
 let dateFrom = document.getElementById('dateForm')
 let dateCard = document.getElementById('dateCard')
 
+let monthForm = document.getElementById('monthForm')
+let yearForm = document.getElementById('yearForm')
+
+let optionSelect = document.getElementsByTagName('option')
+
+
 
 
 
@@ -148,6 +154,9 @@ function cardNumberInteration() {
 formNumber.addEventListener('focus', () => {rotateFront()})
 nameForm.addEventListener('focus', () => {rotateFront()})
 cvvForm.addEventListener('focus', () => {rotateBack()})
+monthForm.addEventListener('focus', () => {rotateFront()})
+yearForm.addEventListener('focus', () => {rotateFront()})
+
 
 
 
@@ -189,6 +198,48 @@ function valorName() {
     if (nameForm.value == '') {
         
         nameCard.innerHTML = 'First & Last Name'
+    }
+}
+
+
+
+// mm & yy 
+monthForm.addEventListener('input', monthSelected)
+yearForm.addEventListener('input', yearSelected)
+
+
+function monthSelected() {
+
+    let posicion = monthForm.selectedIndex
+    let mm = document.getElementById('dateMMcard')
+
+    posicion = optionSelect[posicion].value
+
+    if (posicion == 'MM') {
+        monthForm.style.color = 'gray'
+        mm.innerHTML = posicion
+    } else {
+        monthForm.style.color = 'black'
+        mm.innerHTML = posicion
+    }
+}
+
+
+function yearSelected() {
+
+    let posicion = yearForm.selectedIndex
+    let yy = document.getElementById('dateYYcard')
+
+    posicion = optionSelect[posicion].value
+
+    if (posicion == 'YY') {
+        yearForm.style.color = 'gray'
+        yy.innerHTML = posicion
+
+    } else {
+        yearForm.style.color = 'black'
+        yy.innerHTML = posicion
+
     }
 }
 

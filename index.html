@@ -28,7 +28,7 @@
                     </div>
     
                     <div class="flex text-sm justify-end w-[100px] ">
-                        <span id="dateCard" class="font-[500] relative flex ">MM/YY</span>
+                        <span id="dateCard" class="font-[500] relative flex "><span id="dateMMcard">MM</span>/<span id="dateYYcard">YY</span></span>
                     </div>
                 </div>
 
@@ -52,37 +52,36 @@
             
             <div class="flex mb-[40px]">
                 <div class="flex w-[70%]">
-                    <select name="" id="monthForm" class="w-[50%]">
-                        <option value="">Month</option>
+                    <select name="" id="monthForm" class="w-[50%] shadow bg-white border-[1px] border-white border-solid text-[10px] pointer outline-none text-center appearance-none text-[gray] mr-[10px]">
+                        <option value="MM">Month</option>
                         <option value="01">01</option>
                         <option value="02">02</option>
                         <option value="03">03</option>
-                        <option value="03">03</option>
-                        <option value="03">04</option>
-                        <option value="03">05</option>
-                        <option value="03">06</option>
-                        <option value="03">07</option>
-                        <option value="03">08</option>
-                        <option value="03">09</option>
-                        <option value="03">10</option>
-                        <option value="03">11</option>
-                        <option value="03">12</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
                     </select>
-                    <select name="" id="yearForm" class="w-[50%]">
-                        <option value="">Year</option>
-                        <option value="01">24</option>
-                        <option value="02">25</option>
-                        <option value="03">26</option>
-                        <option value="03">27</option>
-                        <option value="03">28</option>
-                        <option value="03">29</option>
-                        <option value="03">30</option>
-                        <option value="03">31</option>
-                        <option value="03">32</option>
-                        <option value="03">33</option>
-                        <option value="03">34</option>
-                        <option value="03">35</option>
-                        <option value="03">36</option>
+                    <select name="" id="yearForm" class="w-[50%] shadow bg-white border-[1px] border-white border-solid text-[10px] pointer outline-none text-center appearance-none text-[gray] mr-[10px]">
+                        <option value="YY">Year</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                        <option value="34">34</option>
+                        <option value="35">35</option>
+                        <option value="">36</option>
                     </select>
                 </div>
                 <input placeholder="cvv" type="number" name="" id="cvvForm" class="text-[10px] text-center outline-none w-[30%]  px-[10px] py-[5px] shadow                  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
