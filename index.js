@@ -26,6 +26,14 @@ let yearForm = document.getElementById('yearForm')
 
 let optionSelect = document.getElementsByTagName('option')
 
+let submitForm = document.getElementById('submitForm')
+
+let submitButton = document.getElementById('submitButton')
+let formContainer = document.getElementById('formContainer')
+let main = document.getElementById('main')
+let html = document.getElementById('html')
+let animationSubmit = document.getElementById('animationSubmit')
+
 
 
 
@@ -243,6 +251,48 @@ function yearSelected() {
         yy.innerHTML = posicion
 
     }
+}
+
+
+
+// h-[100%] flex justify-center items-center
+submitButton.addEventListener('click', () => {
+
+    frontCard.style.display = 'none'
+    backCard.style.display = 'none'
+    animationSubmit.style.display = 'flex'
+    animationSubmit.style.transition = 'all 1000ms'
+    animationSubmit.style.background = frontCard.style.background
+
+
+
+    setTimeout(()=> {
+        
+        animationSubmit.style.width = '100px'
+        animationSubmit.style.height = '100px'
+        animationSubmit.style.background = '#60a5fa'
+        animationSubmit.style.background = frontCard.style.background
+        animationSubmit.style.borderRadius = '50%'
+
+        setTimeout(() => {
+            setTimeout(()=>{document.getElementById('check').style.display = 'flex'}, 100)
+            animationSubmit.style.background = 'green'
+        }, 900)
+
+    }, 1)
+    
+
+
+    // html.style.height = '100%'
+    // html.style.display = 'flex'
+
+
+    setTimeout(submite, 2000)
+
+})
+
+function submite() {
+    submitForm.click()
 }
 
 

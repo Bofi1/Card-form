@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="html" lang="en" class="justify-center items-center">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +8,12 @@
 </head>
 <body style="color: #1E1E1E;" class="bg-slate-300">
 
-    <main class="mt-40 mb-40 flex flex-col items-center">
-        <div id="card-container" class="relative w-full max-w-sm mx-auto h-56">
+    <main id="main" class="mt-40 mb-40 flex flex-col items-center">
+        <!-- relative w-full max-w-sm mx-auto h-56 -->
+        <div id="card-container" class="relative flex justify-center items-center h-[224px] w-[384px]">
 
             <!-- Front card -->
-            <div id="front-card" class="bg-white h-full w-full rounded-xl drop-shadow-md flex flex-col justify-between py-[30px] px-[40px]">
+            <div id="front-card" class="bg-white h-[224px] w-[384px] rounded-xl drop-shadow-md flex flex-col justify-between py-[30px] px-[40px]">
 
                 <div class="w-full h-[30px] flex justify-start"> 
                     <img id="type" src="" class="w-[30px]">
@@ -34,19 +35,25 @@
 
             </div>
 
-
             <!-- Back card -->
-            <div id="back-card" style="transform: rotateY(180deg); backface-visibility: hidden;" class="bg-white h-full w-full rounded-xl drop-shadow-md absolute top-0 backface-visibility: hidden; flex flex-col justify-start items-center">
+            <div id="back-card" style="transform: rotateY(180deg); backface-visibility: hidden;" class="h-[224px] w-[384px] bg-white rounded-xl drop-shadow-md absolute top-0 backface-visibility: hidden; flex flex-col justify-start items-center">
                 <div class="bg-slate-700 w-full h-[40px] mt-[20px]"></div>
                 <div class="bg-slate-500 w-[80%] h-[30px] mt-[15px]"></div>
                 <div class="bg-white h-[100px] w-[100px] absolute right-0 top-[37px] rounded-[100%] border-2 border-slate-500 flex justify-center items-center">
                     <span id="cvvCard" class="text-[45px] relative top-[9px] font-[500]">***</span>
                 </div>
             </div>
+
+            <!-- animation checked -->
+            <div id="animationSubmit" class="bg-white h-[224px] w-[384px] rounded-xl drop-shadow-md m-auto absolute justify-center items-center hidden ">
+                <img id="check" src="./img/check.png" alt="" class="hidden w-8 h-8">
+            </div>
+
         </div>
 
+
         <!-- Form -->
-        <form class="bg-white w-[300px] mt-[60px] p-[20px] rounded-xl shadow-md py-[40px]">
+        <form id="formContainer" class="bg-white w-[300px] mt-[60px] p-[20px] rounded-xl shadow-md py-[40px]">
             <input placeholder="**** **** **** ****" id="form-number" type="number" class="text-[10px] text-center outline-none w-full mb-[40px] px-[10px] py-[5px] shadow     [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
             <input maxlength="22" placeholder="First & Last Name" id="nameForm" type="text" class="text-[10px] text-center outline-none w-full mb-[40px] px-[10px] py-[5px] shadow">
             
@@ -87,13 +94,19 @@
                 <input placeholder="cvv" type="number" name="" id="cvvForm" class="text-[10px] text-center outline-none w-[30%]  px-[10px] py-[5px] shadow                  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
             </div>
 
-            <button class="w-full bg-blue-400 px-[10px] py-[5px] text-white shadow font-[500] h-[36px] text-[12px]" type="submit">submit</button>
+            <div class="relative flex flex-col">
+                <button id="submitForm" class="w-full bg-blue-400 px-[10px] py-[5px] text-white shadow font-[500] h-[36px] text-[12px]" type="submit">submit</button>
+                <button id="submitButton" class="w-full bg-blue-400 px-[10px] py-[5px] text-white shadow font-[500] h-[36px] text-[12px] absolute top-[0px]" type="button">submit</button>
+
+            </div>
+
 
         </form>
 
 
 
     </main>
+
     
     <script src="./index.js"></script>
 
