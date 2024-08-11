@@ -253,18 +253,24 @@ function yearSelected() {
     }
 }
 
-
+//submit animation
 submitButton.addEventListener('click', animation)
 
 function animation() {
 
+
+
     document.getElementById('front-1').style.display = 'none'
     document.getElementById('front-2').style.display = 'none'
     document.getElementById('front-3').style.display = 'none'
-    // cardContainer.style.zIndex = '1'
+    cardContainer.style.zIndex = '1'
     cardContainer.style.animation = 'cardAnimation 1s ease'
+    frontCard.style.display = 'none'
+    backCard.style.display = 'none'
+
+    cardContainer.style.background = frontCard.style.background
+    formContainer.style.background = frontCard.style.background
     frontCard.style.animation = 'cardAnimation 1s ease'
-    
     formNumber.style.display = 'none'
     nameForm.style.display = 'none'
     document.getElementById('form-1').style.display = 'none'
@@ -272,30 +278,29 @@ function animation() {
     formContainer.style.animation = 'formAnimation 1s ease'
 
 
-    // setTimeout(()=>{
-    //     cardContainer.style.background = 'white'
-    //     cardContainer.style.top = '160px'
-    //     cardContainer.style.width = '100px'
-    //     cardContainer.style.height = '100px'
-    //     cardContainer.style.borderRadius = '50%'
+    setTimeout(()=>{
+        cardContainer.style.top = '160px'
+        cardContainer.style.width = '100px'
+        cardContainer.style.height = '100px'
+        cardContainer.style.borderRadius = '50%'
 
-    //     frontCard.style.top = '160px'
-    //     frontCard.style.width = '100px'
-    //     frontCard.style.height = '100px'
-    //     frontCard.style.borderRadius = '50%'
+        frontCard.style.top = '160px'
+        frontCard.style.width = '100px'
+        frontCard.style.height = '100px'
+        frontCard.style.borderRadius = '50%'
 
-    //     formContainer.style.top = '0px'
-    //     formContainer.style.width = '100px'
-    //     formContainer.style.height = '100px'
-    //     formContainer.style.borderRadius = '50%'
+        formContainer.style.top = '0px'
+        formContainer.style.width = '100px'
+        formContainer.style.height = '100px'
+        formContainer.style.borderRadius = '50%'
 
-    //     setTimeout(()=>{
-    //         document.getElementById('check').style.display = 'flex'
-    //         frontCard.style.transition = '500ms'
-    //         frontCard.style.background = 'green'
-    //     }, 10)
+        setTimeout(()=>{
+            document.getElementById('check').style.display = 'flex'
+            cardContainer.style.transition = '500ms'
+            cardContainer.style.background = 'green'
+        }, 50)
 
-    // },800)
+    },800)
 
     setTimeout(submit, 2000)
 }
