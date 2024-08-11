@@ -118,7 +118,7 @@ function cardNumberInteration() {
         logoType.src = `./img/${card}.png`
     }
 
-    if (formNumber.value.length==16) {
+    if (formNumber.value.length>=2) {
         switch(parseInt(firstNumber)) {
             case 4:
                 type('#EAF2F8', 'vs')
@@ -254,47 +254,55 @@ function yearSelected() {
 }
 
 
+submitButton.addEventListener('click', animation)
 
-// h-[100%] flex justify-center items-center
-submitButton.addEventListener('click', () => {
+function animation() {
 
-    frontCard.style.display = 'none'
-    backCard.style.display = 'none'
-    animationSubmit.style.display = 'flex'
-    animationSubmit.style.transition = 'all 1000ms'
-    animationSubmit.style.background = frontCard.style.background
-
-
-
-    setTimeout(()=> {
-        
-        animationSubmit.style.width = '100px'
-        animationSubmit.style.height = '100px'
-        animationSubmit.style.background = '#60a5fa'
-        animationSubmit.style.background = frontCard.style.background
-        animationSubmit.style.borderRadius = '50%'
-
-        setTimeout(() => {
-            setTimeout(()=>{document.getElementById('check').style.display = 'flex'}, 100)
-            animationSubmit.style.background = 'green'
-        }, 900)
-
-    }, 1)
+    document.getElementById('front-1').style.display = 'none'
+    document.getElementById('front-2').style.display = 'none'
+    document.getElementById('front-3').style.display = 'none'
+    // cardContainer.style.zIndex = '1'
+    cardContainer.style.animation = 'cardAnimation 1s ease'
+    frontCard.style.animation = 'cardAnimation 1s ease'
     
+    formNumber.style.display = 'none'
+    nameForm.style.display = 'none'
+    document.getElementById('form-1').style.display = 'none'
+    document.getElementById('form-2').style.display = 'none'
+    formContainer.style.animation = 'formAnimation 1s ease'
 
 
-    // html.style.height = '100%'
-    // html.style.display = 'flex'
+    // setTimeout(()=>{
+    //     cardContainer.style.background = 'white'
+    //     cardContainer.style.top = '160px'
+    //     cardContainer.style.width = '100px'
+    //     cardContainer.style.height = '100px'
+    //     cardContainer.style.borderRadius = '50%'
 
+    //     frontCard.style.top = '160px'
+    //     frontCard.style.width = '100px'
+    //     frontCard.style.height = '100px'
+    //     frontCard.style.borderRadius = '50%'
 
-    setTimeout(submite, 2000)
+    //     formContainer.style.top = '0px'
+    //     formContainer.style.width = '100px'
+    //     formContainer.style.height = '100px'
+    //     formContainer.style.borderRadius = '50%'
 
-})
+    //     setTimeout(()=>{
+    //         document.getElementById('check').style.display = 'flex'
+    //         frontCard.style.transition = '500ms'
+    //         frontCard.style.background = 'green'
+    //     }, 10)
 
-function submite() {
-    submitForm.click()
+    // },800)
+
+    setTimeout(submit, 2000)
 }
 
+function submit() {
+    submitForm.click()
+}
 
 
 })()
