@@ -79,6 +79,7 @@ function turnCard() {
 
 
 // card number validation
+let cardColorValid
 formNumber.addEventListener('input', cardNumberInteration)
 
 function cardNumberInteration() {
@@ -122,14 +123,17 @@ function cardNumberInteration() {
         switch(parseInt(firstNumber)) {
             case 4:
                 type('#EAF2F8', 'vs')
+                cardColorValid = true
             break;
     
             case 5:
                 type('#FDEDEC', 'mc')
+                cardColorValid = true
             break;
     
             case 3:
                 type('#e9e9e9', 'amex')
+                cardColorValid = true
             break;
     
             default:
@@ -137,6 +141,7 @@ function cardNumberInteration() {
                 frontCard.style.background = 'white'
                 backCard.style.background = 'white'
                 logoType.src = ''
+                cardColorValid = false
           }
     } else {
         frontCard.style.transition = 'all 0.3s'
@@ -147,7 +152,7 @@ function cardNumberInteration() {
 
 
 
-    // if is not vs, mc or amex- all gray
+    // if is not vs, mc or amex- color validation
     if (formNumber.value.length == 16 && firstNumber != 4 && firstNumber != 5 && firstNumber != 3) {
         cardTextNumber.style.transition = 'color 0.3s'
         cardTextNumber.style.color = '#fafafa'
@@ -158,7 +163,7 @@ function cardNumberInteration() {
 }
 
 
-//focus rotate
+//focus rotations
 formNumber.addEventListener('focus', () => {rotateFront()})
 nameForm.addEventListener('focus', () => {rotateFront()})
 cvvForm.addEventListener('focus', () => {rotateBack()})
@@ -191,14 +196,14 @@ function cvv() {
 }
 
 
-// name validation
-//     para que solo acepte letras minus y mayus
+// nameForm validation
+    // para que solo acepte letras minus y mayus
 nameForm.addEventListener('keypress' , (e) => {
     var expre = /[a-zA-Z ]/
     if (!expre.test(e.key)) e.preventDefault()
 })
 
-// se escriba al mismo tiempo
+    // se escriba al mismo tiempo
 nameForm.addEventListener('input', valorName)
 
 function valorName() {
@@ -253,12 +258,83 @@ function yearSelected() {
     }
 }
 
-//submit animation
-submitButton.addEventListener('click', animation)
 
+
+
+
+
+//submit click animation
+submitButton.addEventListener('click', validations)
+
+//variables for validations
+let nameVali
+let cardVali
+let monthVali
+let yearVali
+let cvvVali
+
+
+// validations
+function validations() {
+
+    function errorNonFilled(element) {
+        element.style.background = 'red'
+        element.style.transition = 'all 250ms'
+        element.style.transform = 'scaleY(1.1)'
+        element.style.border = 'red'
+
+        element.addEventListener('focus', ()=> {
+            element.style.background = 'white'
+            element.style.transform = 'scaleY(1)'
+        })
+    }
+
+
+        //formNumber validation
+    if ( formNumber.value == '' || formNumber.value.slice(0,16).length < 16 || cardColorValid == false) {
+        errorNonFilled(formNumber)
+    } else {
+        nameVali = true
+    }
+        //nameNumber validation
+    if ( nameForm.value == '' || nameForm.value.slice(0,16).length < 1) {
+        errorNonFilled(nameForm)
+    } else {
+        cardVali = true
+    }
+
+        //monthForm validation
+    if ( monthForm.value == 'MM') {
+        errorNonFilled(monthForm)
+    } else {
+        monthVali = true
+    }
+
+        //yearForm validation
+    if ( yearForm.value == 'YY') {
+        errorNonFilled(yearForm)
+    } else {
+        yearVali = true
+    }
+
+    if ( cvvForm.value == '' || cvvForm.value.slice(0,3).length < 3) {
+        errorNonFilled(cvvForm)
+        
+    } else {
+        cvvVali = true
+    }
+
+
+    if (nameVali, cardVali, monthVali, yearVali, cvvVali == true) {
+        animation()
+    }
+
+}
+
+
+
+// submit animation
 function animation() {
-
-
 
     document.getElementById('front-1').style.display = 'none'
     document.getElementById('front-2').style.display = 'none'
@@ -276,6 +352,7 @@ function animation() {
     document.getElementById('form-1').style.display = 'none'
     document.getElementById('form-2').style.display = 'none'
     formContainer.style.animation = 'formAnimation 1s ease'
+    
 
 
     setTimeout(()=>{
