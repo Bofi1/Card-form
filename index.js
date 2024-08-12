@@ -278,10 +278,10 @@ let cvvVali
 function validations() {
 
     function errorNonFilled(element) {
-        element.style.background = 'red'
+        element.style.background = '#FFB4A4'
         element.style.transition = 'all 250ms'
         element.style.transform = 'scaleY(1.1)'
-        element.style.border = 'red'
+        element.style.border = '#FFB4A4'
 
         element.addEventListener('focus', ()=> {
             element.style.background = 'white'
